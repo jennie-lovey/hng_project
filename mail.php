@@ -3,6 +3,9 @@
 	use PHPMailer\PHPMailer\PHPMailer;
 	use PHPMailer\PHPMailer\SMTP;
 	use PHPMailer\PHPMailer\Exception;
+
+	$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+	$dotenv->safeLoad();
 	$emailTo = "jennyobiekea@gmail.com"; // Enter your email for feedbacks here
 
 	$subject = "Contact form message";
@@ -12,12 +15,12 @@
 		//Server settings
 		$mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
 		$mail->isSMTP();                                            //Send using SMTP
-		$mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
+		$mail->Host       = $_ENV['SMTP_HOST'];                     //Set the SMTP server to send through
 		$mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-		$mail->Username   = 'jennyobiekea@gmail.com';                     //SMTP username
-		$mail->Password   = 'jennywhyte';                               //SMTP password
+		$mail->Username   = $_ENV['SMTP_USERNAME'];                     //SMTP username
+		$mail->Password   = $_ENV['SMTP_PASSWORD'];                               //SMTP password
 		$mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
-		$mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+		$mail->Port       = $_ENV['SMTP_PORT'];                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 	
 		//Recipients
 		$mail->setFrom($_POST['email'], 'Mailer');
@@ -39,7 +42,8 @@
 		$mail->send();
 		header('location:congratulation.php');
 	} catch (Exception $e) {
-		print_r($e->getMessage());
+		// print_r($e->getMessage());
+		header('location:error.php');
 	}
 	
 
