@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -457,7 +455,7 @@
         <div class="col-md-7 col-lg-5">
           <div class="contacts__form">
             <p class="contacts__form-title">Or just write me a letter here_</p>
-            <form action="congratulation.html" method="post" class="js-form">
+            <form action="mail.php" method="post" class="js-form">
               <div class="form-group">
                 <input class="form-field js-field-name" name="name" type="text" placeholder="Your name" required>
                 <span class="form-validation"></span>

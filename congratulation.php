@@ -78,7 +78,7 @@
       <p class="section__description">
       Thank you! Your email has been reccieved. Kindly check your email.
       </p>
-      <a href="index.html" class="section_btn site-btn">Go back to home page</a>
+      <a href="index.php" class="section_btn site-btn">Go back to home page</a>
     </div>
   </div>
 </section>
