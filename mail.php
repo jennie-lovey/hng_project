@@ -42,8 +42,8 @@
 		$mail->send();
 		header('location:congratulation.php');
 	} catch (Exception $e) {
-		// print_r($e->getMessage());
-		header('location:error.php');
+		print_r($e->getMessage());
+		//header('location:error.php');
 	}
 	
 
