@@ -78,7 +78,7 @@
       <p class="section__description">
       Your mail was not sent. Kindly resend your information.
       </p>
-      <a href="index.html" class="section_btn site-btn">Go back to home page</a>
+      <a href="index.php" class="section_btn site-btn">Go back to home page</a>
     </div>
   </div>
 </section>
